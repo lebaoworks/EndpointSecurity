@@ -1,0 +1,17 @@
+/*
+See LICENSE folder for this sample’s licensing information.
+
+Abstract:
+This file contains initialization code for the system extension.
+*/
+
+import Foundation
+import NetworkExtension
+
+autoreleasepool {
+    NEProvider.startSystemExtensionMode()
+    EndpointSecurity.start()
+    IPCConnection.shared.startListener()
+}
+
+dispatchMain()
