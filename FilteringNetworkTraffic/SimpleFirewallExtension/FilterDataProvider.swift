@@ -16,9 +16,6 @@ class FilterDataProvider: NEFilterDataProvider {
 
     // MARK: Properties
 
-    // The TCP port which the filter is interested in.
-	static let localPort = "8888"
-
     // MARK: NEFilterDataProvider
 
     override func startFilter(completionHandler: @escaping (Error?) -> Void) {
@@ -52,14 +49,27 @@ class FilterDataProvider: NEFilterDataProvider {
     override func handleNewFlow(_ flow: NEFilterFlow) -> NEFilterNewFlowVerdict {
         os_log("Got a new flow")
 
-        guard let socketFlow = flow as? NEFilterSocketFlow,
-            let remoteEndpoint = socketFlow.remoteEndpoint as? NWHostEndpoint,
-            let localEndpoint = socketFlow.localEndpoint as? NWHostEndpoint else {
-                return .allow()
+        let d = NSMutableDictionary()
+        if flow.url != nil {
+            d["Url"] = flow.url?.absoluteString
         }
 
-        os_log("Got a new flow with local endpoint %{public}@, remote endpoint %{public}@", localEndpoint, remoteEndpoint)
-
+        let socketFlow = flow as? NEFilterSocketFlow
+        if (socketFlow != nil) {
+            let remoteEndpoint = socketFlow?.remoteEndpoint as? NWHostEndpoint
+            if remoteEndpoint != nil {
+                d["remote_address"] = remoteEndpoint?.hostname
+                d["remote_port"] = remoteEndpoint?.port
+            }
+            let localEndpoint = socketFlow?.localEndpoint as? NWHostEndpoint
+            if localEndpoint != nil {
+                d["local_address"] = localEndpoint?.hostname
+                d["local_port"] = localEndpoint?.port
+            }
+        }
+        
+        EndpointSecurity.printDict(d)
+//        os_log("Got a new flow with local endpoint %{public}@, remote endpoint %{public}@", localEndpoint, remoteEndpoint)
         return .allow()
     }
 }

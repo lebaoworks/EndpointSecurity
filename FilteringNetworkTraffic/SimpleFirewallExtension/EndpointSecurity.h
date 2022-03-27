@@ -14,7 +14,7 @@
 @interface EndpointSecurity : NSObject
 
 + (int) start;
-+ (void) printHello;
++ (void) printDict:(NSMutableDictionary*) dict;
 @end
 
 #endif /* EndpointSecurity_h */

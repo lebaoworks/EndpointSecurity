@@ -11,7 +11,6 @@ import NetworkExtension
 autoreleasepool {
     NEProvider.startSystemExtensionMode()
     EndpointSecurity.start()
-    IPCConnection.shared.startListener()
 }
 
 dispatchMain()

@@ -69,7 +69,7 @@ handle_event(es_client_t *client, const es_message_t *msg)
     return 0;
 }
 
-+ (void) printHello {
-    NSLog(@"Hello");
++ (void) printDict:(NSMutableDictionary*) dict {
+    NSLog(@"%@", dict);
 }
 @end

@@ -143,24 +143,6 @@ class ViewController: NSViewController {
         }
     }
 
-    func logFlow(_ flowInfo: [String: String], at date: Date, userAllowed: Bool) {
-
-        guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
-            let remoteAddress = flowInfo[FlowInfoKey.remoteAddress.rawValue],
-            let font = NSFont.userFixedPitchFont(ofSize: 12.0) else {
-                return
-        }
-
-        let dateString = dateFormatter.string(from: date)
-        let message = "\(dateString) \(userAllowed ? "ALLOW" : "DENY") \(localPort) <-- \(remoteAddress)\n"
-
-        os_log("%@", message)
-
-        let logAttributes: [NSAttributedString.Key: Any] = [ .font: font, .foregroundColor: NSColor.textColor ]
-        let attributedString = NSAttributedString(string: message, attributes: logAttributes)
-        logTextView.textStorage?.append(attributedString)
-    }
-
     // MARK: UI Event Handlers
 
     @IBAction func startFilter(_ sender: Any) {
@@ -250,7 +232,7 @@ class ViewController: NSViewController {
             if filterManager.providerConfiguration == nil {
                 let providerConfiguration = NEFilterProviderConfiguration()
                 providerConfiguration.filterSockets = true
-                providerConfiguration.filterPackets = false
+                providerConfiguration.filterPackets = true
                 filterManager.providerConfiguration = providerConfiguration
                 if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
                     filterManager.localizedDescription = appName
@@ -276,12 +258,7 @@ class ViewController: NSViewController {
     // MARK: ProviderCommunication
 
     func registerWithProvider() {
-
-        IPCConnection.shared.register(withExtension: extensionBundle, delegate: self) { success in
-            DispatchQueue.main.async {
-                self.status = (success ? .running : .stopped)
-            }
-        }
+        self.status = .running
     }
 }
 
@@ -320,35 +297,3 @@ extension ViewController: OSSystemExtensionRequestDelegate {
     }
 }
 
-extension ViewController: AppCommunication {
-
-    // MARK: AppCommunication
-
-    func promptUser(aboutFlow flowInfo: [String: String], responseHandler: @escaping (Bool) -> Void) {
-
-        guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
-            let remoteAddress = flowInfo[FlowInfoKey.remoteAddress.rawValue],
-            let window = view.window else {
-                os_log("Got a promptUser call without valid flow info: %@", flowInfo)
-                responseHandler(true)
-                return
-        }
-
-        let connectionDate = Date()
-
-        DispatchQueue.main.async {
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-            alert.messageText = "New incoming connection"
-            alert.informativeText = "A new connection on port \(localPort) has been received from \(remoteAddress)."
-            alert.addButton(withTitle: "Allow")
-            alert.addButton(withTitle: "Deny")
-
-            alert.beginSheetModal(for: window) { userResponse in
-                let userAllowed = (userResponse == .alertFirstButtonReturn)
-                self.logFlow(flowInfo, at: connectionDate, userAllowed: userAllowed)
-                responseHandler(userAllowed)
-            }
-        }
-    }
-}

@@ -12,10 +12,8 @@
 		3910F56527F0489C00B3FF80 /* libbsm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3910F56227F0488100B3FF80 /* libbsm.tbd */; };
 		C40A5C46229DD6A500627D50 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B45DDD2273A3450050C59B /* NetworkExtension.framework */; };
 		C40A5C4B229DD6A500627D50 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A5C4A229DD6A500627D50 /* main.swift */; };
-		C40A5C50229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C40A5C56229DD92E00627D50 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B1415A227A396500B26560 /* IPCConnection.swift */; };
+		C40A5C50229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C40A5C57229DD93200627D50 /* FilterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0DBB42273BEA0005B02F4 /* FilterDataProvider.swift */; };
-		C4B1415C227BBC0200B26560 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B1415A227A396500B26560 /* IPCConnection.swift */; };
 		C4B45DB922739FFF0050C59B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B45DB822739FFF0050C59B /* AppDelegate.swift */; };
 		C4B45DBB22739FFF0050C59B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B45DBA22739FFF0050C59B /* ViewController.swift */; };
 		C4B45DBD2273A0020050C59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B45DBC2273A0020050C59B /* Assets.xcassets */; };
@@ -40,7 +38,7 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				C40A5C50229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension in Embed System Extensions */,
+				C40A5C50229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,11 +54,10 @@
 		3910F56227F0488100B3FF80 /* libbsm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbsm.tbd; path = usr/lib/libbsm.tbd; sourceTree = SDKROOT; };
 		6ED719E06ED6DED000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		6ED8E4306ED7A1A000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		C40A5C45229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40A5C45229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.vcs.ajiant.EndpointSecurity.Extension.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A5C4A229DD6A500627D50 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C40A5C4C229DD6A500627D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40A5C4D229DD6A500627D50 /* SimpleFirewallExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleFirewallExtension.entitlements; sourceTree = "<group>"; };
-		C4B1415A227A396500B26560 /* IPCConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCConnection.swift; sourceTree = "<group>"; };
 		C4B45DB522739FFF0050C59B /* SimpleFirewall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFirewall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B45DB822739FFF0050C59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4B45DBA22739FFF0050C59B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				C4E0DBB42273BEA0005B02F4 /* FilterDataProvider.swift */,
-				C4B1415A227A396500B26560 /* IPCConnection.swift */,
 				C40A5C4A229DD6A500627D50 /* main.swift */,
 				C40A5C4C229DD6A500627D50 /* Info.plist */,
 				C40A5C4D229DD6A500627D50 /* SimpleFirewallExtension.entitlements */,
@@ -142,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B45DB522739FFF0050C59B /* SimpleFirewall.app */,
-				C40A5C45229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension */,
+				C40A5C45229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,7 +183,7 @@
 			);
 			name = SimpleFirewallExtension;
 			productName = SimpleFirewallExtension;
-			productReference = C40A5C45229DD6A500627D50 /* com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension.systemextension */;
+			productReference = C40A5C45229DD6A500627D50 /* com.vcs.ajiant.EndpointSecurity.Extension.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 		C4B45DB422739FFF0050C59B /* SimpleFirewall */ = {
@@ -273,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40A5C57229DD93200627D50 /* FilterDataProvider.swift in Sources */,
-				C40A5C56229DD92E00627D50 /* IPCConnection.swift in Sources */,
 				3910F55E27F047B600B3FF80 /* EndpointSecurity.m in Sources */,
 				C40A5C4B229DD6A500627D50 /* main.swift in Sources */,
 			);
@@ -283,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B1415C227BBC0200B26560 /* IPCConnection.swift in Sources */,
 				C4B45DBB22739FFF0050C59B /* ViewController.swift in Sources */,
 				C4B45DB922739FFF0050C59B /* AppDelegate.swift in Sources */,
 			);
@@ -327,7 +321,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcs.ajiant.EndpointSecurity.Extension;
 				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -353,7 +347,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleFirewall.SimpleFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcs.ajiant.EndpointSecurity.Extension;
 				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -493,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcs.ajiant.EndpointSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -516,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcs.ajiant.EndpointSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
